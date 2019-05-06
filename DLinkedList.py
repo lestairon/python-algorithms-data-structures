@@ -1,13 +1,13 @@
 class Node:
-  def __init__ (self, dataval=None):
+  def __init__(self, dataval= None):
     self.dataval = dataval
     self.nextval = None
+    self.prevval = None
 
-class SLinkedList:
+class DoublyLinkedList:
   def __init__(self):
     self.headval = None
 
-  # Print linked list
   def print_list(self):
     printval = self.headval
     while printval is not None:
@@ -18,6 +18,8 @@ class SLinkedList:
   def add_first(self, newdata):
     NewNode = Node(newdata)
     NewNode.nextval = self.headval
+    if self.headval is not None:
+      self.headval.prevval = NewNode
     self.headval = NewNode
 
   # Add to the end
@@ -29,12 +31,14 @@ class SLinkedList:
     tail = self.headval
     while tail.nextval:
       tail = tail.nextval
+    NewNode.prevval = tail
     tail.nextval = NewNode
 
   def remove_first(self):
     removeval = self.headval.nextval
     if removeval:
       self.headval = removeval
+      self.headval.prevval = None
     else:
       self.headval = None
 
@@ -44,6 +48,7 @@ class SLinkedList:
       while temp.nextval is not None:
         prev = temp
         temp = temp.nextval
+      temp.prev = None
       prev.nextval = None
     else:
       self.headval = None
