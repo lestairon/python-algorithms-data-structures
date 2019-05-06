@@ -1,11 +1,13 @@
 import gc
 
 class Node:
+
   def __init__ (self, data_val=None):
     self.data_val = data_val
     self.next_val = None
 
 class SingleLinkedList:
+  
   def __init__(self):
     self.head_node = None
 
