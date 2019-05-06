@@ -5,47 +5,47 @@ class Node:
     self.data_val = data_val
     self.next_val = None
 
-class SLinkedList:
+class SingleLinkedList:
   def __init__(self):
-    self.head_val = None
+    self.head_node = None
 
   # Print linked list
   def print_list(self):
-    printval = self.head_val
+    printval = self.head_node
     while printval is not None:
       print(printval.data_val)
       printval = printval.next_val
 
   # Add to the start
-  def add_first(self, new_data):
+  def insert(self, new_data):
     new_node = Node(new_data)
-    new_node.next_val = self.head_val
-    self.head_val = new_node
+    new_node.next_val = self.head_node
+    self.head_node = new_node
 
   # Add to the end
-  def add_last(self, new_data):
+  def append(self, new_data):
     new_node = Node(new_data)
-    if self.head_val is None:
-      self.head_val = new_node
+    if self.head_node is None:
+      self.head_node = new_node
       return
-    tail = self.head_val
+    tail = self.head_node
     while tail.next_val:
       tail = tail.next_val
     tail.next_val = new_node
 
-  def remove_first(self):
-    remove_val = self.head_val.next_val
+  def shift(self):
+    remove_val = self.head_node.next_val
     if remove_val:
-      self.head_val = remove_val
+      self.head_node = remove_val
     else:
-      self.head_val = None
+      self.head_node = None
 
-  def remove_last(self):
-    temp = self.head_val
+  def pop(self):
+    temp = self.head_node
     if temp.next_val:
       while temp.next_val is not None:
         prev = temp
         temp = temp.next_val
       prev.next_val = None
     else:
-      self.head_val = None
+      self.head_node = None
