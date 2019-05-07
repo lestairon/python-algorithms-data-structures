@@ -1,4 +1,4 @@
-from Array import Stack
+from src.stack.Array import Stack
 
 class PostfixCalculator:
   def calculate(self, *args):
@@ -17,7 +17,4 @@ class PostfixCalculator:
       elif inputs == '/':
         stack.push(l_value / r_value)
 
-    return print(stack.pop())
-
-s = PostfixCalculator()
-s.calculate(5, 6, 7, '*', '+', 1, '-')
+    return stack.pop()
