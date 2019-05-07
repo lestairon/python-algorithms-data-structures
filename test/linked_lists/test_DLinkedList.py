@@ -12,20 +12,20 @@ class TestLinkedList(unittest.TestCase):
     def test_insert_data(self):
         self.test_list.insert(self.data1)
         # Check if assigning it to head node
-        self.assertEqual(self.data1, self.test_list.head_node.data_val)
-        self.assertEqual(self.data1, self.test_list.tail_node.data_val)
+        self.assertEqual(self.data1, self.test_list.head_node.data_value)
+        self.assertEqual(self.data1, self.test_list.tail_node.data_value)
         # Check if head is reassigned and tail was the previous head
         self.test_list.insert(self.data2)
-        self.assertEqual(self.data2, self.test_list.head_node.data_val)
-        self.assertEqual(self.data1, self.test_list.tail_node.data_val)
+        self.assertEqual(self.data2, self.test_list.head_node.data_value)
+        self.assertEqual(self.data1, self.test_list.tail_node.data_value)
 
     def test_append_data(self):
         self.test_list.append(self.data1)
-        self.assertEqual(self.data1, self.test_list.head_node.data_val)
-        self.assertEqual(self.data1, self.test_list.tail_node.data_val)
+        self.assertEqual(self.data1, self.test_list.head_node.data_value)
+        self.assertEqual(self.data1, self.test_list.tail_node.data_value)
         self.test_list.append(self.data2)
-        self.assertEqual(self.data2, self.test_list.tail_node.data_val)
-        self.assertEqual(self.data1, self.test_list.head_node.data_val)
+        self.assertEqual(self.data2, self.test_list.tail_node.data_value)
+        self.assertEqual(self.data1, self.test_list.head_node.data_value)
 
     def test_shift_data(self):
         self.test_list.insert(self.data1)
@@ -36,27 +36,27 @@ class TestLinkedList(unittest.TestCase):
         self.test_list.insert(self.data1)
         self.test_list.insert(self.data2)
         self.test_list.shift()
-        self.assertEqual(self.data1, self.test_list.head_node.data_val)
-        self.assertEqual(self.data1, self.test_list.tail_node.data_val)
+        self.assertEqual(self.data1, self.test_list.head_node.data_value)
+        self.assertEqual(self.data1, self.test_list.tail_node.data_value)
 
     def test_pop_data(self):
         self.test_list.insert(self.data1)
         self.test_list.append(self.data2)
-        self.assertNotEqual(self.data1, self.test_list.tail_node.data_val)
+        self.assertNotEqual(self.data1, self.test_list.tail_node.data_value)
         self.test_list.pop()
-        self.assertEqual(self.data1, self.test_list.tail_node.data_val)
+        self.assertEqual(self.data1, self.test_list.tail_node.data_value)
 
     def test_tail_references_previous_node(self):
         self.test_list.insert(self.data1)
         self.test_list.append(self.data2)
-        self.assertEqual(self.test_list.tail_node.prev_val,
+        self.assertEqual(self.test_list.tail_node.prev_value,
                          self.test_list.head_node)
 
     def test_head_references_next_node(self):
         self.test_list.insert(self.data1)
         self.test_list.append(self.data2)
-        self.assertEqual(self.test_list.head_node.next_val.data_val,
-                         self.test_list.tail_node.data_val)
+        self.assertEqual(self.test_list.head_node.next_value.data_value,
+                         self.test_list.tail_node.data_value)
 
     def test_shift_deletes_head_and_tail(self):
         self.test_list.insert(self.data1)
