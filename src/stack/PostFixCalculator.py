@@ -1,4 +1,4 @@
-from src.stack.Array import Stack
+from src.stack.StackArray import Stack
 
 class PostfixCalculator:
   def calculate(self, *args):
