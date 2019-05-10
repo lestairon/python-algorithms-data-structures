@@ -53,13 +53,15 @@ class DoublyLinkedList:
                     current.prev_value = new_node
                     self.tail_node = current
                 else:
+                    if current == self.tail_node:
+                        self.tail_node = current
                     new_node.prev_value = current.prev_value
                     new_node.next_value = current
                     current.prev_value.next_value = new_node
                     current.prev_value = new_node
             current = current.next_value
         if current is None:
-            return 
+            return
 
     # Deletes the first element in the List
     def shift(self):
